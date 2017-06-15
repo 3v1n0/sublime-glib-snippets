@@ -20,7 +20,7 @@ static GParamSpec *properties [N_PROPS];
 ${1/[\W_]*([^_\W]+)[\W_]*/\u\1/g} *
 ${1/([^\w])|(\w)/(?1_:\L\2)/g}_new (void)
 {
-  return g_object_new (${1/^[\W_]*(\w+)[\W_]+\w.*|([\w]+).*/\U\2\1_TYPE_/}${1/(^[\W_]*\w+[\W_]+)|([\w]+)|([\W_])/\U\2(?3_:)/g}, NULL);
+  return g_object_new (${1/^[\W_]*([^_\W]+)[\W_]+[^_\W].*|([^_\W]+).*/\U\2\1_TYPE_/}${1/(^[\W_]*[^_\W]+[\W_]+)|([^_\W]+)|([\W_])/\U\2(?3_:)/g}, NULL);
 }
 
 static void
