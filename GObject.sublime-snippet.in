@@ -1,0 +1,82 @@
+<snippet>
+    <content><![CDATA[
+/* Generated from input '${1:class-name}' */
+#include "@file_name_regex@.h"
+
+typedef struct
+{
+  ${3:/* private stuff */}
+} @CamelCaseTypeRegex@Private;
+
+G_DEFINE_TYPE_WITH_PRIVATE (@CamelCaseTypeRegex@, @function_name_regex@, ${2:G_TYPE_OBJECT})
+
+enum {
+  PROP_0,
+  N_PROPS
+};
+
+static GParamSpec *properties [N_PROPS];
+
+@CamelCaseTypeRegex@ *
+@function_name_regex@_new (void)
+{
+  return g_object_new (@OBJECT_TYPE_REGEX@, NULL);
+}
+
+static void
+@function_name_regex@_finalize (GObject *object)
+{
+  @CamelCaseTypeRegex@ *self = (@CamelCaseTypeRegex@ *)object;
+  @CamelCaseTypeRegex@Private *priv = @function_name_regex@_get_instance_private (self);
+
+  G_OBJECT_CLASS (@function_name_regex@_parent_class)->finalize (object);
+}
+
+static void
+@function_name_regex@_get_property (GObject    *object,
+@SPACE_PADDING_REGEX@               guint       prop_id,
+@SPACE_PADDING_REGEX@               GValue     *value,
+@SPACE_PADDING_REGEX@               GParamSpec *pspec)
+{
+  @CamelCaseTypeRegex@ *self = @MACRO_TYPE_REGEX@ (object);
+
+  switch (prop_id)
+    {
+    default:
+      G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+    }
+}
+
+static void
+@function_name_regex@_set_property (GObject      *object,
+@SPACE_PADDING_REGEX@               guint         prop_id,
+@SPACE_PADDING_REGEX@               const GValue *value,
+@SPACE_PADDING_REGEX@               GParamSpec   *pspec)
+{
+  @CamelCaseTypeRegex@ *self = ${1/(.+)/\U$1/g} (object);
+
+  switch (prop_id)
+    {
+    default:
+      G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+    }
+}
+
+static void
+@function_name_regex@_class_init (@CamelCaseTypeRegex@Class *klass)
+{
+  GObjectClass *object_class = G_OBJECT_CLASS (klass);
+
+  object_class->finalize = @function_name_regex@_finalize;
+  object_class->get_property = @function_name_regex@_get_property;
+  object_class->set_property = @function_name_regex@_set_property;
+}
+
+static void
+@function_name_regex@_init (@CamelCaseTypeRegex@ *self)
+{
+}
+]]></content>
+    <scope>source.c,source.c++</scope>
+    <description>Create GObject type Source</description>
+</snippet>
