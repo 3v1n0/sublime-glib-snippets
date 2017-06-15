@@ -1,4 +1,4 @@
-file_name_regex = $${1/ /-/g}
+file_name_regex = $${1/[\W]/-/g}
 CamelCaseTypeRegex = $${1/[\W_]*([^_\W]+)[\W_]*/\u\1/g}
 function_name_regex = $${1/([^\w])|(\w)/(?1_:\L\2)/g}
 MACRO_TYPE_REGEX = $${1/([\w]+)|([\W_])/\U\1(?2_:)/g}

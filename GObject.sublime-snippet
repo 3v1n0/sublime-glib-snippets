@@ -1,7 +1,7 @@
 <snippet>
     <content><![CDATA[
 /* Generated from input '${1:class-name}' */
-#include "${1/ /-/g}.h"
+#include "${1/[\W]/-/g}.h"
 
 typedef struct
 {
