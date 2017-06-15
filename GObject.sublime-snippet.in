@@ -1,7 +1,9 @@
 <snippet>
+    <scope>source.c,source.c++</scope>
+    <description>Create GObject type Source</description>
     <content><![CDATA[
-/* Generated from input '${1:class-name}' */
-#include "@file_name_regex@.h"
+/* "@file-name-regex@.c": generated from input '${1:class-name}' */
+#include "@file-name-regex@.h"
 
 typedef struct
 {
@@ -77,6 +79,4 @@ static void
 {
 }
 ]]></content>
-    <scope>source.c,source.c++</scope>
-    <description>Create GObject type Source</description>
 </snippet>

@@ -1,8 +1,11 @@
-file_name_regex = $${1/[\W]/-/g}
+file-name-regex = $${1/[\W]/-/g}
 CamelCaseTypeRegex = $${1/[\W_]*([^_\W]+)[\W_]*/\u\1/g}
 function_name_regex = $${1/([^\w])|(\w)/(?1_:\L\2)/g}
 MACRO_TYPE_REGEX = $${1/([\w]+)|([\W_])/\U\1(?2_:)/g}
-OBJECT_TYPE_REGEX = $${1/^[\W_]*([^_\W]+)[\W_]+[^_\W].*|([^_\W]+).*/\U\2\1_TYPE_/}$${1/(^[\W_]*[^_\W]+[\W_]+)|([^_\W]+)|([\W_])/\U\2(?3_:)/g}
+NAMESPACE_REGEX  = $${1/^[\W_]*([^_\W]+)[\W_]+[^_\W].*|([^_\W]+).*/\U\2\1/}
+CLASS_NAME_REGEX = $${1/(^[\W_]*[^_\W]+[\W_]+)|([^_\W]+)|([\W_])/\U\2(?3_:)/g}
+OBJECT_TYPE_REGEX = $(NAMESPACE_REGEX)_TYPE_$(CLASS_NAME_REGEX)
+
 SPACE_PADDING_REGEX = $${1/./ /g}
 
 SHELL='/bin/bash'
