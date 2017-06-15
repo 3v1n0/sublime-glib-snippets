@@ -1,0 +1,29 @@
+<snippet>
+    <scope>source.c,source.c++</scope>
+    <description>Create GObject type Header</description>
+    <content><![CDATA[
+/* "@file-name-regex@.h": generated from input '${1:class-name}' */
+
+#ifndef @MACRO_TYPE_REGEX@_H
+#define @MACRO_TYPE_REGEX@_H
+
+#include ${3:<glib-object.h>}
+
+G_BEGIN_DECLS
+
+#define @OBJECT_TYPE_REGEX@ (@function_name_regex@_get_type())
+
+G_DECLARE_DERIVABLE_TYPE (@CamelCaseTypeRegex@, @function_name_regex@, @NAMESPACE_REGEX@, @CLASS_NAME_REGEX@, ${2:GObject})
+
+struct _@CamelCaseTypeRegex@Class
+{
+  @CamelCaseTypeRegex@Class parent;
+};
+
+@CamelCaseTypeRegex@ *@function_name_regex@_new (void);
+$0
+G_END_DECLS
+
+#endif /* @MACRO_TYPE_REGEX@_H */
+]]></content>
+</snippet>
