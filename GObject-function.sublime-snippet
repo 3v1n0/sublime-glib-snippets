@@ -1,0 +1,13 @@
+<snippet>
+    <scope>source.c,source.c++</scope>
+    <description>Create GObject function</description>
+    <tabTrigger>_g_object_function</tabTrigger>
+    <content><![CDATA[
+/* ${1:class-name} */
+${3:static void}
+${1/([^\w])|(\w)/(?1_:\L\2)/g}_${2:function_name} (${1/[\W_]*([^_\W]+)[\W_]*/\u\1/g} *self)
+{
+  $0
+}
+]]></content>
+</snippet>
