@@ -1,0 +1,33 @@
+<snippet>
+	<scope>source.c,source.c++</scope>
+	<description>Create GObject interface Header</description>
+	<content><![CDATA[
+/* "${1/\W/-/g}.h": generated from input '${1:class-name}', extends '${2:g-object}' */
+
+#ifndef __${1/([\w]+)|([\W_])/\U\1(?2_:)/g}_H__
+#define __${1/([\w]+)|([\W_])/\U\1(?2_:)/g}_H__
+
+#include <${3:glib-object.h}>
+
+G_BEGIN_DECLS
+
+#define ${1/^[\W_]*([^_\W]+)[\W_]+[^_\W].*|([^_\W]+).*/\U\2\1/}_TYPE_${1/(^[\W_]*[^_\W]+[\W_]+)|([^_\W]+)|([\W_])/\U\2(?3_:)/g} (${1/([^\w])|(\w)/(?1_:\L\2)/g}_get_type ())
+
+/* Implicitly generated macros by GLib:
+*   ${1/([\w]+)|([\W_])/\U\1(?2_:)/g} (o)
+*   ${1/^[\W_]*([^_\W]+)[\W_]+[^_\W].*|([^_\W]+).*/\U\2\1/}_IS_${1/(^[\W_]*[^_\W]+[\W_]+)|([^_\W]+)|([\W_])/\U\2(?3_:)/g} (o)
+*/
+
+G_DECLARE_INTERFACE (${1/[\W_]*([^_\W]+)[\W_]*/\u\1/g}, ${1/([^\w])|(\w)/(?1_:\L\2)/g}, ${1/^[\W_]*([^_\W]+)[\W_]+[^_\W].*|([^_\W]+).*/\U\2\1/}, ${1/(^[\W_]*[^_\W]+[\W_]+)|([^_\W]+)|([\W_])/\U\2(?3_:)/g}, ${2/[\W_]*([^_\W]+)[\W_]*/\u\1/g})
+
+struct _${1/[\W_]*([^_\W]+)[\W_]*/\u\1/g}Interface
+{
+	GTypeInterface parent;
+	$0
+};
+
+G_END_DECLS
+
+#endif /* __${1/([\w]+)|([\W_])/\U\1(?2_:)/g}_H__ */
+]]></content>
+</snippet>

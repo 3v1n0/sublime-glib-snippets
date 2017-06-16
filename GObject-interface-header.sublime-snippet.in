@@ -1,0 +1,33 @@
+<snippet>
+	<scope>source.c,source.c++</scope>
+	<description>Create GObject interface Header</description>
+	<content><![CDATA[
+/* "@1_file-name-regex@.h": generated from input '${1:class-name}', extends '${2:g-object}' */
+
+#ifndef __@1_MACRO_TYPE_REGEX@_H__
+#define __@1_MACRO_TYPE_REGEX@_H__
+
+#include <${3:glib-object.h}>
+
+G_BEGIN_DECLS
+
+#define @1_OBJECT_TYPE_REGEX@ (@1_function_name_regex@_get_type ())
+
+/* Implicitly generated macros by GLib:
+*   @1_MACRO_TYPE_REGEX@ (o)
+*   @1_NAMESPACE_REGEX@_IS_@1_CLASS_NAME_REGEX@ (o)
+*/
+
+G_DECLARE_INTERFACE (@1_CamelCaseTypeRegex@, @1_function_name_regex@, @1_NAMESPACE_REGEX@, @1_CLASS_NAME_REGEX@, @2_CamelCaseTypeRegex@)
+
+struct _@1_CamelCaseTypeRegex@Interface
+{
+	GTypeInterface parent;
+	$0
+};
+
+G_END_DECLS
+
+#endif /* __@1_MACRO_TYPE_REGEX@_H__ */
+]]></content>
+</snippet>

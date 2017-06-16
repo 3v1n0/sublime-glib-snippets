@@ -1,0 +1,15 @@
+<snippet>
+	<scope>source.c,source.c++</scope>
+	<description>Create GObject interface Source</description>
+	<content><![CDATA[
+/* "${1/\W/-/g}.c": generated from input '${1:class-name}', extends '${2:g-object}' */
+#include "${1/\W/-/g}.h"
+
+G_DEFINE_INTERFACE (${1/[\W_]*([^_\W]+)[\W_]*/\u\1/g}, ${1/([^\w])|(\w)/(?1_:\L\2)/g}, ${2/^[\W_]*([^_\W]+)[\W_]+[^_\W].*|([^_\W]+).*/\U\2\1/}_TYPE_${2/(^[\W_]*[^_\W]+[\W_]+)|([^_\W]+)|([\W_])/\U\2(?3_:)/g})
+
+static void
+${1/([^\w])|(\w)/(?1_:\L\2)/g}_default_init (${1/[\W_]*([^_\W]+)[\W_]*/\u\1/g}Interface *iface)
+{
+}
+]]></content>
+</snippet>

@@ -1,0 +1,15 @@
+<snippet>
+	<scope>source.c,source.c++</scope>
+	<description>Create GObject interface Source</description>
+	<content><![CDATA[
+/* "@1_file-name-regex@.c": generated from input '${1:class-name}', extends '${2:g-object}' */
+#include "@1_file-name-regex@.h"
+
+G_DEFINE_INTERFACE (@1_CamelCaseTypeRegex@, @1_function_name_regex@, @2_OBJECT_TYPE_REGEX@)
+
+static void
+@1_function_name_regex@_default_init (@1_CamelCaseTypeRegex@Interface *iface)
+{
+}
+]]></content>
+</snippet>
