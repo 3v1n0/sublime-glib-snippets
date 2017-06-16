@@ -12,6 +12,12 @@
 G_BEGIN_DECLS
 
 #define @OBJECT_TYPE_REGEX@ (@function_name_regex@_get_type ())
+#define @MACRO_TYPE_REGEX@_GET_PRIVATE(o) ((@CamelCaseTypeRegex@Private *) @function_name_regex@_get_instance_private (o))
+
+/* Implicitly generated macros by GLib:
+ *   @MACRO_TYPE_REGEX@ (o)
+ *   @NAMESPACE_REGEX@_IS_@CLASS_NAME_REGEX@ (o)
+ */
 
 G_DECLARE_DERIVABLE_TYPE (@CamelCaseTypeRegex@, @function_name_regex@, @NAMESPACE_REGEX@, @CLASS_NAME_REGEX@, ${2:GObject})
 
