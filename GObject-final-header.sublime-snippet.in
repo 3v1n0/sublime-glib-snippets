@@ -1,0 +1,29 @@
+<snippet>
+    <scope>source.c,source.c++</scope>
+    <description>Create GObject Final type Header</description>
+    <content><![CDATA[
+/* "@file-name-regex@.h": generated from input '${1:class-name}' */
+
+#ifndef __@MACRO_TYPE_REGEX@_H__
+#define __@MACRO_TYPE_REGEX@_H__
+
+#include ${3:<glib-object.h>}
+
+G_BEGIN_DECLS
+
+#define @OBJECT_TYPE_REGEX@ (@function_name_regex@_get_type ())
+
+/* Implicitly generated macros by GLib:
+ *   @MACRO_TYPE_REGEX@ (o)
+ *   @NAMESPACE_REGEX@_IS_@CLASS_NAME_REGEX@ (o)
+ */
+
+G_DECLARE_FINAL_TYPE (@CamelCaseTypeRegex@, @function_name_regex@, @NAMESPACE_REGEX@, @CLASS_NAME_REGEX@, ${2:GObject})
+
+@CamelCaseTypeRegex@ *@function_name_regex@_new (void);
+$0
+G_END_DECLS
+
+#endif /* __@MACRO_TYPE_REGEX@_H__ */
+]]></content>
+</snippet>
