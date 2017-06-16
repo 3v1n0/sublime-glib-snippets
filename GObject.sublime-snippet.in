@@ -29,7 +29,7 @@ static void
 @function_name_regex@_finalize (GObject *object)
 {
   @CamelCaseTypeRegex@ *self = (@CamelCaseTypeRegex@ *)object;
-  @CamelCaseTypeRegex@Private *priv = @function_name_regex@_get_instance_private (self);
+  /* @CamelCaseTypeRegex@Private *priv = @function_name_regex@_get_instance_private (self); */
 
   G_OBJECT_CLASS (@function_name_regex@_parent_class)->finalize (object);
 }
@@ -55,7 +55,7 @@ static void
 @SPACE_PADDING_REGEX@               const GValue *value,
 @SPACE_PADDING_REGEX@               GParamSpec   *pspec)
 {
-  @CamelCaseTypeRegex@ *self = ${1/(.+)/\U$1/g} (object);
+  @CamelCaseTypeRegex@ *self = @MACRO_TYPE_REGEX@ (object);
 
   switch (prop_id)
     {
@@ -77,6 +77,7 @@ static void
 static void
 @function_name_regex@_init (@CamelCaseTypeRegex@ *self)
 {
+  /* @CamelCaseTypeRegex@Private *priv = @function_name_regex@_get_instance_private (self); */
 }
 ]]></content>
 </snippet>

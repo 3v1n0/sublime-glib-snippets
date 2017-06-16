@@ -4,26 +4,26 @@
     <content><![CDATA[
 /* "@file-name-regex@.h": generated from input '${1:class-name}' */
 
-#ifndef @MACRO_TYPE_REGEX@_H
-#define @MACRO_TYPE_REGEX@_H
+#ifndef __@MACRO_TYPE_REGEX@_H__
+#define __@MACRO_TYPE_REGEX@_H__
 
 #include ${3:<glib-object.h>}
 
 G_BEGIN_DECLS
 
-#define @OBJECT_TYPE_REGEX@ (@function_name_regex@_get_type())
+#define @OBJECT_TYPE_REGEX@ (@function_name_regex@_get_type ())
 
 G_DECLARE_DERIVABLE_TYPE (@CamelCaseTypeRegex@, @function_name_regex@, @NAMESPACE_REGEX@, @CLASS_NAME_REGEX@, ${2:GObject})
 
 struct _@CamelCaseTypeRegex@Class
 {
-  @CamelCaseTypeRegex@Class parent;
+  ${2:GObject}Class parent;
 };
 
 @CamelCaseTypeRegex@ *@function_name_regex@_new (void);
 $0
 G_END_DECLS
 
-#endif /* @MACRO_TYPE_REGEX@_H */
+#endif /* __@MACRO_TYPE_REGEX@_H__ */
 ]]></content>
 </snippet>
