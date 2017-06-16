@@ -2,15 +2,16 @@
     <scope>source.c,source.c++</scope>
     <description>Create GObject Final type Source</description>
     <content><![CDATA[
-/* "@1_file-name-regex@.c": generated from input '${1:class-name}' */
+/* "@1_file-name-regex@.c": generated from input '${1:class-name}', extends ${2:g_object} */
+
 #include "@1_file-name-regex@.h"
 
 struct _@1_CamelCaseTypeRegex@
 {
-  ${3:GObject} parent_instance;
+  @2_CamelCaseTypeRegex@ parent_instance;
 };
 
-G_DEFINE_TYPE (@1_CamelCaseTypeRegex@, @1_function_name_regex@, ${4:G_TYPE_OBJECT})
+G_DEFINE_TYPE (@1_CamelCaseTypeRegex@, @1_function_name_regex@, @2_OBJECT_TYPE_REGEX@)
 
 enum {
   PROP_0,

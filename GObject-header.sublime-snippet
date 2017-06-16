@@ -2,12 +2,12 @@
     <scope>source.c,source.c++</scope>
     <description>Create GObject type Header</description>
     <content><![CDATA[
-/* "${1/\W/-/g}.h": generated from input '${1:class-name}' */
+/* "${1/\W/-/g}.h": generated from input '${1:class-name}', extends '${2:g-object}' */
 
 #ifndef __${1/([\w]+)|([\W_])/\U\1(?2_:)/g}_H__
 #define __${1/([\w]+)|([\W_])/\U\1(?2_:)/g}_H__
 
-#include ${3:<glib-object.h>}
+#include <${3:glib-object.h}>
 
 G_BEGIN_DECLS
 
@@ -19,11 +19,11 @@ G_BEGIN_DECLS
  *   ${1/^[\W_]*([^_\W]+)[\W_]+[^_\W].*|([^_\W]+).*/\U\2\1/}_IS_${1/(^[\W_]*[^_\W]+[\W_]+)|([^_\W]+)|([\W_])/\U\2(?3_:)/g} (o)
  */
 
-G_DECLARE_DERIVABLE_TYPE (${1/[\W_]*([^_\W]+)[\W_]*/\u\1/g}, ${1/([^\w])|(\w)/(?1_:\L\2)/g}, ${1/^[\W_]*([^_\W]+)[\W_]+[^_\W].*|([^_\W]+).*/\U\2\1/}, ${1/(^[\W_]*[^_\W]+[\W_]+)|([^_\W]+)|([\W_])/\U\2(?3_:)/g}, ${2:GObject})
+G_DECLARE_DERIVABLE_TYPE (${1/[\W_]*([^_\W]+)[\W_]*/\u\1/g}, ${1/([^\w])|(\w)/(?1_:\L\2)/g}, ${1/^[\W_]*([^_\W]+)[\W_]+[^_\W].*|([^_\W]+).*/\U\2\1/}, ${1/(^[\W_]*[^_\W]+[\W_]+)|([^_\W]+)|([\W_])/\U\2(?3_:)/g}, ${2/[\W_]*([^_\W]+)[\W_]*/\u\1/g})
 
 struct _${1/[\W_]*([^_\W]+)[\W_]*/\u\1/g}Class
 {
-  ${2}Class parent;
+  ${2/[\W_]*([^_\W]+)[\W_]*/\u\1/g}Class parent;
 };
 
 ${1/[\W_]*([^_\W]+)[\W_]*/\u\1/g} *${1/([^\w])|(\w)/(?1_:\L\2)/g}_new (void);

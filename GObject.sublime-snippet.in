@@ -2,7 +2,7 @@
     <scope>source.c,source.c++</scope>
     <description>Create GObject type Source</description>
     <content><![CDATA[
-/* "@1_file-name-regex@.c": generated from input '${1:class-name}' */
+/* "@1_file-name-regex@.c": generated from input '${1:class-name}', extends '${2:g-object}' */
 #include "@1_file-name-regex@.h"
 
 typedef struct
@@ -10,7 +10,7 @@ typedef struct
   ${3:/* private stuff */}
 } @1_CamelCaseTypeRegex@Private;
 
-G_DEFINE_TYPE_WITH_PRIVATE (@1_CamelCaseTypeRegex@, @1_function_name_regex@, ${2:G_TYPE_OBJECT})
+G_DEFINE_TYPE_WITH_PRIVATE (@1_CamelCaseTypeRegex@, @1_function_name_regex@, @2_OBJECT_TYPE_REGEX@)
 
 enum {
   PROP_0,
