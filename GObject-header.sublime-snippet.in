@@ -28,6 +28,7 @@ struct _@1_CamelCaseTypeRegex@Class
 
 @1_CamelCaseTypeRegex@ *@1_function_name_regex@_new (void);
 $0
+
 G_END_DECLS
 
 #endif /* __@1_MACRO_TYPE_REGEX@_H__ */
