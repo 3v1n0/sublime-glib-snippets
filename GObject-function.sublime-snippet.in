@@ -5,7 +5,7 @@
     <content><![CDATA[
 /* ${1:class-name} */
 ${3:static void}
-@function_name_regex@_${2:function_name} (@CamelCaseTypeRegex@ *self)
+@1_function_name_regex@_${2:function_name} (@1_CamelCaseTypeRegex@ *self)
 {
   $0
 }

@@ -2,7 +2,7 @@
     <scope>source.c,source.c++</scope>
     <description>Create GObject Final type Header</description>
     <content><![CDATA[
-/* "${1/[\W]/-/g}.h": generated from input '${1:class-name}' */
+/* "${1/\W/-/g}.h": generated from input '${1:class-name}' */
 
 #ifndef __${1/([\w]+)|([\W_])/\U\1(?2_:)/g}_H__
 #define __${1/([\w]+)|([\W_])/\U\1(?2_:)/g}_H__

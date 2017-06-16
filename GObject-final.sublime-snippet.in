@@ -2,15 +2,15 @@
     <scope>source.c,source.c++</scope>
     <description>Create GObject Final type Source</description>
     <content><![CDATA[
-/* "@file-name-regex@.c": generated from input '${1:class-name}' */
-#include "@file-name-regex@.h"
+/* "@1_file-name-regex@.c": generated from input '${1:class-name}' */
+#include "@1_file-name-regex@.h"
 
-struct _@CamelCaseTypeRegex@
+struct _@1_CamelCaseTypeRegex@
 {
   ${3:GObject} parent_instance;
 };
 
-G_DEFINE_TYPE (@CamelCaseTypeRegex@, @function_name_regex@, ${4:G_TYPE_OBJECT})
+G_DEFINE_TYPE (@1_CamelCaseTypeRegex@, @1_function_name_regex@, ${4:G_TYPE_OBJECT})
 
 enum {
   PROP_0,
@@ -19,27 +19,27 @@ enum {
 
 static GParamSpec *properties [N_PROPS];
 
-@CamelCaseTypeRegex@ *
-@function_name_regex@_new (void)
+@1_CamelCaseTypeRegex@ *
+@1_function_name_regex@_new (void)
 {
-  return g_object_new (@OBJECT_TYPE_REGEX@, NULL);
+  return g_object_new (@1_OBJECT_TYPE_REGEX@, NULL);
 }
 
 static void
-@function_name_regex@_finalize (GObject *object)
+@1_function_name_regex@_finalize (GObject *object)
 {
-  @CamelCaseTypeRegex@ *self = (@CamelCaseTypeRegex@ *)object;
+  @1_CamelCaseTypeRegex@ *self = (@1_CamelCaseTypeRegex@ *)object;
 
-  G_OBJECT_CLASS (@function_name_regex@_parent_class)->finalize (object);
+  G_OBJECT_CLASS (@1_function_name_regex@_parent_class)->finalize (object);
 }
 
 static void
-@function_name_regex@_get_property (GObject    *object,
-@SPACE_PADDING_REGEX@               guint       prop_id,
-@SPACE_PADDING_REGEX@               GValue     *value,
-@SPACE_PADDING_REGEX@               GParamSpec *pspec)
+@1_function_name_regex@_get_property (GObject    *object,
+@1_SPACE_PADDING_REGEX@               guint       prop_id,
+@1_SPACE_PADDING_REGEX@               GValue     *value,
+@1_SPACE_PADDING_REGEX@               GParamSpec *pspec)
 {
-  @CamelCaseTypeRegex@ *self = @MACRO_TYPE_REGEX@ (object);
+  @1_CamelCaseTypeRegex@ *self = @1_MACRO_TYPE_REGEX@ (object);
 
   switch (prop_id)
     {
@@ -49,12 +49,12 @@ static void
 }
 
 static void
-@function_name_regex@_set_property (GObject      *object,
-@SPACE_PADDING_REGEX@               guint         prop_id,
-@SPACE_PADDING_REGEX@               const GValue *value,
-@SPACE_PADDING_REGEX@               GParamSpec   *pspec)
+@1_function_name_regex@_set_property (GObject      *object,
+@1_SPACE_PADDING_REGEX@               guint         prop_id,
+@1_SPACE_PADDING_REGEX@               const GValue *value,
+@1_SPACE_PADDING_REGEX@               GParamSpec   *pspec)
 {
-  @CamelCaseTypeRegex@ *self = @MACRO_TYPE_REGEX@ (object);
+  @1_CamelCaseTypeRegex@ *self = @1_MACRO_TYPE_REGEX@ (object);
 
   switch (prop_id)
     {
@@ -64,17 +64,17 @@ static void
 }
 
 static void
-@function_name_regex@_class_init (@CamelCaseTypeRegex@Class *klass)
+@1_function_name_regex@_class_init (@1_CamelCaseTypeRegex@Class *klass)
 {
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-  object_class->finalize = @function_name_regex@_finalize;
-  object_class->get_property = @function_name_regex@_get_property;
-  object_class->set_property = @function_name_regex@_set_property;
+  object_class->finalize = @1_function_name_regex@_finalize;
+  object_class->get_property = @1_function_name_regex@_get_property;
+  object_class->set_property = @1_function_name_regex@_set_property;
 }
 
 static void
-@function_name_regex@_init (@CamelCaseTypeRegex@ *self)
+@1_function_name_regex@_init (@1_CamelCaseTypeRegex@ *self)
 {
 }
 ]]></content>

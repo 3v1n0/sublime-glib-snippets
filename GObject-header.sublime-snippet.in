@@ -2,34 +2,34 @@
     <scope>source.c,source.c++</scope>
     <description>Create GObject type Header</description>
     <content><![CDATA[
-/* "@file-name-regex@.h": generated from input '${1:class-name}' */
+/* "@1_file-name-regex@.h": generated from input '${1:class-name}' */
 
-#ifndef __@MACRO_TYPE_REGEX@_H__
-#define __@MACRO_TYPE_REGEX@_H__
+#ifndef __@1_MACRO_TYPE_REGEX@_H__
+#define __@1_MACRO_TYPE_REGEX@_H__
 
 #include ${3:<glib-object.h>}
 
 G_BEGIN_DECLS
 
-#define @OBJECT_TYPE_REGEX@ (@function_name_regex@_get_type ())
-#define @MACRO_TYPE_REGEX@_GET_PRIVATE(o) ((@CamelCaseTypeRegex@Private *) @function_name_regex@_get_instance_private (o))
+#define @1_OBJECT_TYPE_REGEX@ (@1_function_name_regex@_get_type ())
+#define @1_MACRO_TYPE_REGEX@_GET_PRIVATE(o) ((@1_CamelCaseTypeRegex@Private *) @1_function_name_regex@_get_instance_private (o))
 
 /* Implicitly generated macros by GLib:
- *   @MACRO_TYPE_REGEX@ (o)
- *   @NAMESPACE_REGEX@_IS_@CLASS_NAME_REGEX@ (o)
+ *   @1_MACRO_TYPE_REGEX@ (o)
+ *   @1_NAMESPACE_REGEX@_IS_@1_CLASS_NAME_REGEX@ (o)
  */
 
-G_DECLARE_DERIVABLE_TYPE (@CamelCaseTypeRegex@, @function_name_regex@, @NAMESPACE_REGEX@, @CLASS_NAME_REGEX@, ${2:GObject})
+G_DECLARE_DERIVABLE_TYPE (@1_CamelCaseTypeRegex@, @1_function_name_regex@, @1_NAMESPACE_REGEX@, @1_CLASS_NAME_REGEX@, ${2:GObject})
 
-struct _@CamelCaseTypeRegex@Class
+struct _@1_CamelCaseTypeRegex@Class
 {
-  ${2:GObject}Class parent;
+  ${2}Class parent;
 };
 
-@CamelCaseTypeRegex@ *@function_name_regex@_new (void);
+@1_CamelCaseTypeRegex@ *@1_function_name_regex@_new (void);
 $0
 G_END_DECLS
 
-#endif /* __@MACRO_TYPE_REGEX@_H__ */
+#endif /* __@1_MACRO_TYPE_REGEX@_H__ */
 ]]></content>
 </snippet>

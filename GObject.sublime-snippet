@@ -2,8 +2,8 @@
     <scope>source.c,source.c++</scope>
     <description>Create GObject type Source</description>
     <content><![CDATA[
-/* "${1/[\W]/-/g}.c": generated from input '${1:class-name}' */
-#include "${1/[\W]/-/g}.h"
+/* "${1/\W/-/g}.c": generated from input '${1:class-name}' */
+#include "${1/\W/-/g}.h"
 
 typedef struct
 {
