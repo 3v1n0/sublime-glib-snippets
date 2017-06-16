@@ -1,0 +1,21 @@
+<snippet>
+  <scope>source.c,source.c++</scope>
+  <tabTrigger>gobj_guard</tabTrigger>
+  <description>Create GLib Header Guard</description>
+  <content><![CDATA[
+/* "@1_file-name-regex@.h": generated from input '${1:header-file}' */
+
+#ifndef __@1_MACRO_TYPE_REGEX@_H__
+#define __@1_MACRO_TYPE_REGEX@_H__
+
+#include <${2:glib.h}>
+
+G_BEGIN_DECLS
+
+$0
+
+G_END_DECLS
+
+#endif /* __@1_MACRO_TYPE_REGEX@_H__ */
+]]></content>
+</snippet>
