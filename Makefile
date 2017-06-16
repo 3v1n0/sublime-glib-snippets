@@ -18,15 +18,19 @@ define escape_regex
 $(shell echo '$(1)' | sed -E 's,([\#$$%&\]),\\&,g;')
 endef
 
+define replace_var_pattern
+'s,@$(1)@,$(call escape_regex,$($(1))),g'
+endef
+
 %.sublime-snippet: %.sublime-snippet.in
-	sed -e 's,@file-name-regex@,$(call escape_regex,$(file-name-regex)),g;' \
-	    -e 's,@CamelCaseTypeRegex@,$(call escape_regex,$(CamelCaseTypeRegex)),g' \
-	    -e 's,@function_name_regex@,$(call escape_regex,$(function_name_regex)),g' \
-	    -e 's,@MACRO_TYPE_REGEX@,$(call escape_regex,$(MACRO_TYPE_REGEX)),g' \
-	    -e 's,@NAMESPACE_REGEX@,$(call escape_regex,$(NAMESPACE_REGEX)),g' \
-	    -e 's,@CLASS_NAME_REGEX@,$(call escape_regex,$(CLASS_NAME_REGEX)),g' \
-	    -e 's,@OBJECT_TYPE_REGEX@,$(call escape_regex,$(OBJECT_TYPE_REGEX)),g' \
-	    -e 's,@SPACE_PADDING_REGEX@,$(call escape_regex,$(SPACE_PADDING_REGEX)),g' \
+	sed -e $(call replace_var_pattern,file-name-regex) \
+	    -e $(call replace_var_pattern,CamelCaseTypeRegex) \
+	    -e $(call replace_var_pattern,function_name_regex) \
+	    -e $(call replace_var_pattern,MACRO_TYPE_REGEX) \
+	    -e $(call replace_var_pattern,NAMESPACE_REGEX) \
+	    -e $(call replace_var_pattern,CLASS_NAME_REGEX) \
+	    -e $(call replace_var_pattern,OBJECT_TYPE_REGEX) \
+	    -e $(call replace_var_pattern,SPACE_PADDING_REGEX) \
 	    $< > $@
 
 clean:
