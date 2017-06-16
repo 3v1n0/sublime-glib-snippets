@@ -1,7 +1,7 @@
 <snippet>
-    <scope>source.c,source.c++</scope>
-    <description>Create GObject Final type Header</description>
-    <content><![CDATA[
+	<scope>source.c,source.c++</scope>
+	<description>Create GObject Final type Header</description>
+	<content><![CDATA[
 /* "${1/\W/-/g}.h": generated from input '${1:class-name}', extends '${2:g-object}' */
 
 #ifndef __${1/([\w]+)|([\W_])/\U\1(?2_:)/g}_H__

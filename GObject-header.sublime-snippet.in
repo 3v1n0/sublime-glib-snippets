@@ -1,7 +1,7 @@
 <snippet>
-    <scope>source.c,source.c++</scope>
-    <description>Create GObject type Header</description>
-    <content><![CDATA[
+	<scope>source.c,source.c++</scope>
+	<description>Create GObject type Header</description>
+	<content><![CDATA[
 /* "@1_file-name-regex@.h": generated from input '${1:class-name}', extends '${2:g-object}' */
 
 #ifndef __@1_MACRO_TYPE_REGEX@_H__
@@ -15,15 +15,15 @@ G_BEGIN_DECLS
 #define @1_MACRO_TYPE_REGEX@_GET_PRIVATE(o) ((@1_CamelCaseTypeRegex@Private *) @1_function_name_regex@_get_instance_private (o))
 
 /* Implicitly generated macros by GLib:
- *   @1_MACRO_TYPE_REGEX@ (o)
- *   @1_NAMESPACE_REGEX@_IS_@1_CLASS_NAME_REGEX@ (o)
- */
+*   @1_MACRO_TYPE_REGEX@ (o)
+*   @1_NAMESPACE_REGEX@_IS_@1_CLASS_NAME_REGEX@ (o)
+*/
 
 G_DECLARE_DERIVABLE_TYPE (@1_CamelCaseTypeRegex@, @1_function_name_regex@, @1_NAMESPACE_REGEX@, @1_CLASS_NAME_REGEX@, @2_CamelCaseTypeRegex@)
 
 struct _@1_CamelCaseTypeRegex@Class
 {
-  @2_CamelCaseTypeRegex@Class parent;
+	@2_CamelCaseTypeRegex@Class parent;
 };
 
 @1_CamelCaseTypeRegex@ *@1_function_name_regex@_new (void);

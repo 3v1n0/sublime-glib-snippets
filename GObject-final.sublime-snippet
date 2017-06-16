@@ -1,21 +1,21 @@
 <snippet>
-    <scope>source.c,source.c++</scope>
-    <description>Create GObject Final type Source</description>
-    <content><![CDATA[
+	<scope>source.c,source.c++</scope>
+	<description>Create GObject Final type Source</description>
+	<content><![CDATA[
 /* "${1/\W/-/g}.c": generated from input '${1:class-name}', extends ${2:g_object} */
 
 #include "${1/\W/-/g}.h"
 
 struct _${1/[\W_]*([^_\W]+)[\W_]*/\u\1/g}
 {
-  ${2/[\W_]*([^_\W]+)[\W_]*/\u\1/g} parent_instance;
+	${2/[\W_]*([^_\W]+)[\W_]*/\u\1/g} parent_instance;
 };
 
 G_DEFINE_TYPE (${1/[\W_]*([^_\W]+)[\W_]*/\u\1/g}, ${1/([^\w])|(\w)/(?1_:\L\2)/g}, ${2/^[\W_]*([^_\W]+)[\W_]+[^_\W].*|([^_\W]+).*/\U\2\1/}_TYPE_${2/(^[\W_]*[^_\W]+[\W_]+)|([^_\W]+)|([\W_])/\U\2(?3_:)/g})
 
 enum {
-  PROP_0,
-  N_PROPS
+	PROP_0,
+	N_PROPS
 };
 
 static GParamSpec *properties [N_PROPS];
@@ -23,15 +23,15 @@ static GParamSpec *properties [N_PROPS];
 ${1/[\W_]*([^_\W]+)[\W_]*/\u\1/g} *
 ${1/([^\w])|(\w)/(?1_:\L\2)/g}_new (void)
 {
-  return g_object_new (${1/^[\W_]*([^_\W]+)[\W_]+[^_\W].*|([^_\W]+).*/\U\2\1/}_TYPE_${1/(^[\W_]*[^_\W]+[\W_]+)|([^_\W]+)|([\W_])/\U\2(?3_:)/g}, NULL);
+	return g_object_new (${1/^[\W_]*([^_\W]+)[\W_]+[^_\W].*|([^_\W]+).*/\U\2\1/}_TYPE_${1/(^[\W_]*[^_\W]+[\W_]+)|([^_\W]+)|([\W_])/\U\2(?3_:)/g}, NULL);
 }
 
 static void
 ${1/([^\w])|(\w)/(?1_:\L\2)/g}_finalize (GObject *object)
 {
-  ${1/[\W_]*([^_\W]+)[\W_]*/\u\1/g} *self = (${1/[\W_]*([^_\W]+)[\W_]*/\u\1/g} *)object;
+	${1/[\W_]*([^_\W]+)[\W_]*/\u\1/g} *self = (${1/[\W_]*([^_\W]+)[\W_]*/\u\1/g} *)object;
 
-  G_OBJECT_CLASS (${1/([^\w])|(\w)/(?1_:\L\2)/g}_parent_class)->finalize (object);
+	G_OBJECT_CLASS (${1/([^\w])|(\w)/(?1_:\L\2)/g}_parent_class)->finalize (object);
 }
 
 static void
@@ -40,13 +40,13 @@ ${1/./ /g}               guint       prop_id,
 ${1/./ /g}               GValue     *value,
 ${1/./ /g}               GParamSpec *pspec)
 {
-  ${1/[\W_]*([^_\W]+)[\W_]*/\u\1/g} *self = ${1/([\w]+)|([\W_])/\U\1(?2_:)/g} (object);
+	${1/[\W_]*([^_\W]+)[\W_]*/\u\1/g} *self = ${1/([\w]+)|([\W_])/\U\1(?2_:)/g} (object);
 
-  switch (prop_id)
-    {
-    default:
-      G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-    }
+	switch (prop_id)
+		{
+		default:
+			G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+		}
 }
 
 static void
@@ -55,23 +55,23 @@ ${1/./ /g}               guint         prop_id,
 ${1/./ /g}               const GValue *value,
 ${1/./ /g}               GParamSpec   *pspec)
 {
-  ${1/[\W_]*([^_\W]+)[\W_]*/\u\1/g} *self = ${1/([\w]+)|([\W_])/\U\1(?2_:)/g} (object);
+	${1/[\W_]*([^_\W]+)[\W_]*/\u\1/g} *self = ${1/([\w]+)|([\W_])/\U\1(?2_:)/g} (object);
 
-  switch (prop_id)
-    {
-    default:
-      G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-    }
+	switch (prop_id)
+		{
+		default:
+			G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+		}
 }
 
 static void
 ${1/([^\w])|(\w)/(?1_:\L\2)/g}_class_init (${1/[\W_]*([^_\W]+)[\W_]*/\u\1/g}Class *klass)
 {
-  GObjectClass *object_class = G_OBJECT_CLASS (klass);
+	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-  object_class->finalize = ${1/([^\w])|(\w)/(?1_:\L\2)/g}_finalize;
-  object_class->get_property = ${1/([^\w])|(\w)/(?1_:\L\2)/g}_get_property;
-  object_class->set_property = ${1/([^\w])|(\w)/(?1_:\L\2)/g}_set_property;
+	object_class->finalize = ${1/([^\w])|(\w)/(?1_:\L\2)/g}_finalize;
+	object_class->get_property = ${1/([^\w])|(\w)/(?1_:\L\2)/g}_get_property;
+	object_class->set_property = ${1/([^\w])|(\w)/(?1_:\L\2)/g}_set_property;
 }
 
 static void
